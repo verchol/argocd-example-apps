@@ -7,7 +7,7 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 20
+      - setWeight: 10
       - pause: {}
       - setWeight: 40
       - pause: {duration: 10}
@@ -15,7 +15,7 @@ spec:
       - pause: {duration: 40}
       - setWeight: 80
       - pause: {duration: 10}
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 20
   selector:
     matchLabels:
       app: rollouts-demo
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:yellow
         ports:
         - name: http
           containerPort: 8080
